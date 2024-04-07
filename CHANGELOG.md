@@ -1,6 +1,7 @@
 # 1.3.2
 
 - Fix enabling/disabling enchantments #43, thanks to Mariany P.
+- Improve attribute resolution (Fabric only)
 
 # 1.3.1
 
