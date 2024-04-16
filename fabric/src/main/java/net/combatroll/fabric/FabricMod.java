@@ -8,7 +8,6 @@ public class FabricMod implements ModInitializer {
     @Override
     public void onInitialize() {
         CombatRoll.init();
-        CombatRoll.registerAttributes();
         CombatRoll.configureEnchantments();
         CombatRoll.registerEnchantments();
         SoundHelper.registerSounds();
