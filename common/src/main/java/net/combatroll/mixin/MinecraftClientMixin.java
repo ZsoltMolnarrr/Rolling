@@ -131,8 +131,9 @@ public abstract class MinecraftClientMixin implements MinecraftClientExtension {
             if (player.isTouchingWater()) {
                 var liquidHeight = player.getFluidHeight(FluidTags.WATER);
                 liquidHeight = Math.min(liquidHeight, 1F);
-                // System.out.println("Water! " + liquidHeight * 0.5);
-                direction = direction.multiply(liquidHeight * 0.5);
+                var multiplier = Math.max(1 - (liquidHeight*3), 0.3);
+                // System.out.println("Water! " + multiplier + " liquidHeight: " + liquidHeight);
+                direction = direction.multiply(multiplier);
             }
 
             if (player.isInLava()) {
@@ -144,7 +145,7 @@ public abstract class MinecraftClientMixin implements MinecraftClientExtension {
 
             var block = player.getWorld().getBlockState(player.getBlockPos().down()).getBlock();
             var slipperiness = block.getSlipperiness();
-            var defaultSlipperiness = Blocks.GRASS.getSlipperiness();
+            var defaultSlipperiness = Blocks.GRASS_BLOCK.getSlipperiness();
             if (slipperiness > defaultSlipperiness) {
                 var multiplier = defaultSlipperiness / slipperiness;
                 direction = direction.multiply(multiplier * multiplier);

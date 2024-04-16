@@ -1,3 +1,8 @@
+# 1.3.3
+
+- Update to Minecraft 1.20.4
+- Improve rolling speed in water
+
 # 1.3.2
 
 - Fix enabling/disabling enchantments #43, thanks to Mariany P.
