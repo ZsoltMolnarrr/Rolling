@@ -1,3 +1,7 @@
+# 1.3.3
+
+- Fix roll charges even when paused #45
+
 # 1.3.2
 
 - Fix enabling/disabling enchantments #43, thanks to Mariany P.

@@ -3,13 +3,13 @@ package net.combatroll.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.combatroll.client.Keybindings;
+import net.combatroll.internals.RollingEntity;
 import net.combatroll.mixin.client.KeybindingAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.combatroll.client.MinecraftClientExtension;
-import net.combatroll.client.RollManager;
+import net.combatroll.internals.RollManager;
 import net.combatroll.client.CombatRollClient;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,7 +35,8 @@ public class HudRenderHelper {
             if (player.isSpectator()) {
                 return;
             }
-            var cooldownInfo = ((MinecraftClientExtension)client).getRollManager().getCooldown();
+            var rollingPlayer = ((RollingEntity)player);
+            var cooldownInfo = rollingPlayer.getRollManager().getCooldown();
             if (!config.showWhenFull && cooldownInfo.availableRolls() == cooldownInfo.maxRolls()) {
                 return;
             }

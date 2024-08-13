@@ -1,13 +1,11 @@
 package net.combatroll.mixin;
 
 import net.combatroll.CombatRoll;
-import net.combatroll.Platform;
 import net.combatroll.api.EntityAttributes_CombatRoll;
-import net.combatroll.client.MinecraftClientExtension;
 import net.combatroll.client.RollEffect;
 import net.combatroll.client.Keybindings;
-import net.combatroll.client.RollManager;
 import net.combatroll.compatibility.BetterCombatHelper;
+import net.combatroll.internals.RollingEntity;
 import net.combatroll.network.Packets;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.block.Blocks;
@@ -28,23 +26,22 @@ import static net.combatroll.api.EntityAttributes_CombatRoll.Type.DISTANCE;
 import static net.combatroll.client.RollEffect.Particles.PUFF;
 
 @Mixin(value = MinecraftClient.class, priority = 449)
-public abstract class MinecraftClientMixin implements MinecraftClientExtension {
+public abstract class MinecraftClientMixin {
     @Shadow private int itemUseCooldown;
     @Shadow @Nullable public ClientPlayerEntity player;
-    @Shadow @Nullable public Screen currentScreen;
-    private RollManager rollManager = new RollManager();
-    public RollManager getRollManager() {
-        return rollManager;
-    }
 
-    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screen/Screen;)V",at = @At("TAIL"))
-    private void disconnect_TAIL(Screen screen, CallbackInfo ci) {
-        rollManager.isEnabled = false;
-    }
+//    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screen/Screen;)V",at = @At("TAIL"))
+//    private void disconnect_TAIL(Screen screen, CallbackInfo ci) {
+//        var rollingPlayer = ((RollingEntity)player);
+//        if (rollingPlayer != null) {
+//            rollingPlayer.getRollManager().isEnabled = false;
+//        }
+//    }
 
     @Inject(method = "doAttack", at = @At("HEAD"), cancellable = true)
     private void doAttack_HEAD(CallbackInfoReturnable<Boolean> info) {
-        if (rollManager.isRolling()) {
+        var rollingPlayer = ((RollingEntity)player);
+        if (rollingPlayer != null && rollingPlayer.getRollManager().isRolling()) {
             info.setReturnValue(false);
             info.cancel();
         }
@@ -52,14 +49,16 @@ public abstract class MinecraftClientMixin implements MinecraftClientExtension {
 
     @Inject(method = "handleBlockBreaking", at = @At("HEAD"), cancellable = true)
     private void handleBlockBreaking_HEAD(boolean bl, CallbackInfo ci) {
-        if (rollManager.isRolling()) {
+        var rollingPlayer = ((RollingEntity)player);
+        if (rollingPlayer != null && rollingPlayer.getRollManager().isRolling()) {
             ci.cancel();
         }
     }
 
     @Inject(method = "doItemUse", at = @At("HEAD"), cancellable = true)
     private void doItemUse_HEAD(CallbackInfo ci) {
-        if (rollManager.isRolling()) {
+        var rollingPlayer = ((RollingEntity)player);
+        if (rollingPlayer != null && rollingPlayer.getRollManager().isRolling()) {
             ci.cancel();
         }
     }
@@ -69,18 +68,13 @@ public abstract class MinecraftClientMixin implements MinecraftClientExtension {
         tryRolling();
     }
 
-    @Inject(method = "tick", at = @At("TAIL"))
-    private void tick_TAIL(CallbackInfo ci) {
-        if (player != null) {
-            rollManager.tick(player);
-        }
-    }
-
     private void tryRolling() {
         var client = (MinecraftClient) ((Object)this);
         if (player == null || client.isPaused() || client.currentScreen != null) {
             return;
         }
+        var rollingPlayer = ((RollingEntity)player);
+        var rollManager = rollingPlayer.getRollManager();
         if (Keybindings.roll.isPressed()) {
             if(!rollManager.isRollAvailable(player)) {
                 return;
