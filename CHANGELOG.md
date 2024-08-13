@@ -1,5 +1,8 @@
-# 1.3.3
+# 1.3.4
 
+- Fix roll charges even when paused #45
+
+# 1.3.3
 - Update to Minecraft 1.20.4
 - Improve rolling speed in water
 

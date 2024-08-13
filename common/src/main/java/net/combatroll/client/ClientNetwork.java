@@ -1,6 +1,7 @@
 package net.combatroll.client;
 
 import net.combatroll.CombatRoll;
+import net.combatroll.internals.RollingEntity;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.combatroll.network.Packets;
@@ -19,7 +20,10 @@ public class ClientNetwork {
 
         ClientPlayNetworking.registerGlobalReceiver(Packets.ConfigSync.ID, (client, handler, buf, responseSender) -> {
             var config = Packets.ConfigSync.read(buf);
-            ((MinecraftClientExtension)client).getRollManager().isEnabled = true;
+            var rollingPlayer = ((RollingEntity)client.player);
+            if (rollingPlayer != null) {
+                rollingPlayer.getRollManager().isEnabled = true;
+            }
             CombatRoll.config = config;
         });
     }

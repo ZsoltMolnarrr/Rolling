@@ -1,7 +1,8 @@
-package net.combatroll.client;
+package net.combatroll.internals;
 
 import net.combatroll.CombatRoll;
 import net.combatroll.api.EntityAttributes_CombatRoll;
+import net.combatroll.client.CombatRollClient;
 import net.combatroll.mixin.PlayerEntityAccessor;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -14,7 +15,7 @@ import static net.combatroll.api.EntityAttributes_CombatRoll.Type.COUNT;
 import static net.combatroll.api.EntityAttributes_CombatRoll.Type.RECHARGE;
 
 public class RollManager {
-    public boolean isEnabled = false;
+    public boolean isEnabled = true;
     public static int rollDuration() {
         return CombatRoll.config.roll_duration;
     }
