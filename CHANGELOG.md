@@ -1,6 +1,7 @@
 # 1.3.4
 
 - Fix roll charges even when paused #45
+- Update Korean translation, thanks to @smoong951
 
 # 1.3.3
 - Update to Minecraft 1.20.4
