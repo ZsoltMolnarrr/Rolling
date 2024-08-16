@@ -9,18 +9,16 @@ import dev.kosmx.playerAnim.core.data.KeyframeAnimation;
 import dev.kosmx.playerAnim.core.util.Ease;
 import dev.kosmx.playerAnim.core.util.Vec3f;
 import dev.kosmx.playerAnim.impl.IAnimatedPlayer;
-import net.combatroll.CombatRoll;
+import net.combatroll.CombatRollMod;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.encryption.PlayerPublicKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.combatroll.client.animation.AdjustmentModifier;
 import net.combatroll.client.animation.AnimatablePlayer;
 import net.combatroll.client.animation.AnimationRegistry;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -57,7 +55,7 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity imple
 
             var fadeIn = copy.beginTick;
             float length = copy.endTick;
-            speedModifier.speed = length / ((float) CombatRoll.config.roll_duration);
+            speedModifier.speed = length / ((float) CombatRollMod.config.roll_duration);
             base.replaceAnimationWithFade(
                     AbstractFadeModifier.standardFadeIn(fadeIn, Ease.INOUTSINE),
                     new KeyframeAnimationPlayer(copy.build(), 0));

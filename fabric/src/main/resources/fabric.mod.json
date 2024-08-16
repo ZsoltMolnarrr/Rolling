@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.combatroll.fabric.client.FabricClientMod"
+      "net.combatroll.fabric.client.CombatRollClientModFabric"
     ],
     "main": [
-      "net.combatroll.fabric.FabricMod"
+      "net.combatroll.fabric.CombatRollModFabric"
     ],
     "modmenu": [
       "net.combatroll.fabric.client.ModMenuIntegration"
@@ -29,7 +29,7 @@
     "combatroll.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.20",
+    "minecraft": ">=1.20.3",
     "fabricloader": ">=0.14.0",
     "fabric-api": "*",
     "cloth-config": ">=11.0.0",

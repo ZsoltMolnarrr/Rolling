@@ -1,16 +1,15 @@
 package net.combatroll.mixin;
 
-import net.combatroll.CombatRoll;
+import net.combatroll.CombatRollMod;
+import net.combatroll.Platform;
 import net.combatroll.api.EntityAttributes_CombatRoll;
 import net.combatroll.client.RollEffect;
 import net.combatroll.client.Keybindings;
 import net.combatroll.compatibility.BetterCombatHelper;
 import net.combatroll.internals.RollingEntity;
 import net.combatroll.network.Packets;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.math.Vec3d;
@@ -79,10 +78,10 @@ public abstract class MinecraftClientMixin {
             if(!rollManager.isRollAvailable(player)) {
                 return;
             }
-            if(!CombatRoll.config.allow_rolling_while_airborn && !player.isOnGround()) {
+            if(!CombatRollMod.config.allow_rolling_while_airborn && !player.isOnGround()) {
                 return;
             }
-            if(player.getHungerManager().getFoodLevel() <= CombatRoll.config.food_level_required) {
+            if(player.getHungerManager().getFoodLevel() <= CombatRollMod.config.food_level_required) {
                 return;
             }
             if(player.isSwimming() || player.isCrawling()) {
@@ -94,7 +93,7 @@ public abstract class MinecraftClientMixin {
             if(player.isUsingItem() || player.isBlocking()) {
                 return;
             }
-            if (!CombatRoll.config.allow_rolling_while_weapon_cooldown && player.getAttackCooldownProgress(0) < 0.95) {
+            if (!CombatRollMod.config.allow_rolling_while_weapon_cooldown && player.getAttackCooldownProgress(0) < 0.95) {
                 return;
             }
             if (BetterCombatHelper.isDoingUpswing()) {
@@ -119,7 +118,7 @@ public abstract class MinecraftClientMixin {
             direction = direction.rotateY((float) Math.toRadians((-1.0) * player.getYaw()));
             var distance = 0.475 *
                     (EntityAttributes_CombatRoll.getAttributeValue(player, DISTANCE)
-                    + CombatRoll.config.additional_roll_distance);
+                    + CombatRollMod.config.additional_roll_distance);
             direction = direction.multiply(distance);
 
             if (player.isTouchingWater()) {
@@ -148,10 +147,10 @@ public abstract class MinecraftClientMixin {
             player.addVelocity(direction.x, direction.y, direction.z);
             rollManager.onRoll(player);
 
-            var rollVisuals = new RollEffect.Visuals(CombatRoll.MOD_ID + ":roll", PUFF);
-            ClientPlayNetworking.send(
+            var rollVisuals = new RollEffect.Visuals(CombatRollMod.ID + ":roll", PUFF);
+            Platform.networkC2S_Send(
                     Packets.RollPublish.ID,
-                    new Packets.RollPublish(player.getId(), rollVisuals, direction).write());
+                    new Packets.RollPublish(player.getId(), rollVisuals, direction));
             RollEffect.playVisuals(rollVisuals, player, direction);
         }
     }

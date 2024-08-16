@@ -1,52 +1,44 @@
-package net.combatroll.fabric;
+package net.combatroll.neoforge;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.fabricmc.loader.api.FabricLoader;
 import net.combatroll.Platform;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.Collection;
 
-import static net.combatroll.Platform.Type.FABRIC;
+import static net.combatroll.Platform.Type.NEOFORGE;
 
 public class PlatformImpl {
     public static Platform.Type getPlatformType() {
-        return FABRIC;
+        return NEOFORGE;
     }
 
     public static boolean isModLoaded(String modid) {
-        return FabricLoader.getInstance().isModLoaded(modid);
+        return ModList.get().isLoaded(modid);
     }
 
     public static Collection<ServerPlayerEntity> tracking(ServerPlayerEntity player) {
-        return PlayerLookup.tracking(player);
+        return (Collection<ServerPlayerEntity>) player.getWorld().getPlayers();
     }
 
     public static Collection<ServerPlayerEntity> around(ServerWorld world, Vec3d origin, double distance) {
-        return PlayerLookup.around(world, origin, distance);
+        return world.getPlayers((player) -> player.getPos().squaredDistanceTo(origin) <= (distance*distance));
     }
 
     public static boolean networkS2C_CanSend(ServerPlayerEntity player, Identifier packetId) {
-        return ServerPlayNetworking.canSend(player, packetId);
+        return true;
     }
 
     public static void networkS2C_Send(ServerPlayerEntity player, Identifier packetId, CustomPayload payload) {
-        var buffer = PacketByteBufs.create();
-        payload.write(buffer);
-        ServerPlayNetworking.send(player, packetId, buffer);
+        PacketDistributor.PLAYER.with(player).send(payload);
     }
 
     public static void networkC2S_Send(Identifier packetId, CustomPayload payload) {
-        var buffer = PacketByteBufs.create();
-        payload.write(buffer);
-        ClientPlayNetworking.send(packetId, buffer);
+        PacketDistributor.SERVER.with(null).send(payload);
     }
 }

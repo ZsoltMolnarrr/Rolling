@@ -1,6 +1,6 @@
 package net.combatroll.internals;
 
-import net.combatroll.CombatRoll;
+import net.combatroll.CombatRollMod;
 import net.combatroll.api.EntityAttributes_CombatRoll;
 import net.combatroll.client.CombatRollClient;
 import net.combatroll.mixin.PlayerEntityAccessor;
@@ -17,7 +17,7 @@ import static net.combatroll.api.EntityAttributes_CombatRoll.Type.RECHARGE;
 public class RollManager {
     public boolean isEnabled = true;
     public static int rollDuration() {
-        return CombatRoll.config.roll_duration;
+        return CombatRollMod.config.roll_duration;
     }
     private int timeSinceLastRoll = 10;
     private int currentCooldownProgress = 0;
@@ -82,7 +82,7 @@ public class RollManager {
     }
 
     private void updateCooldownLength(ClientPlayerEntity player) {
-        var duration = CombatRoll.config.roll_cooldown;
+        var duration = CombatRollMod.config.roll_cooldown;
         currentCooldownLength = (int) Math.round(duration * 20F * (20F / EntityAttributes_CombatRoll.getAttributeValue(player, RECHARGE)));
     }
 }

@@ -1,6 +1,6 @@
 package net.combatroll.client;
 
-import net.combatroll.CombatRoll;
+import net.combatroll.CombatRollMod;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 
@@ -15,7 +15,7 @@ public class Keybindings {
                 "keybinds.combatroll.roll",
                 InputUtil.Type.KEYSYM,
                 InputUtil.GLFW_KEY_R,
-                CombatRoll.modName());
+                CombatRollMod.modName());
 
         all = List.of(roll);
     }

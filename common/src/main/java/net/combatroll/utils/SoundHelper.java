@@ -4,7 +4,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.combatroll.CombatRoll;
+import net.combatroll.CombatRollMod;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class SoundHelper {
 
     public static void registerSounds() {
         for (var soundKey: soundKeys) {
-            var soundId = new Identifier(CombatRoll.MOD_ID, soundKey);
+            var soundId = new Identifier(CombatRollMod.ID, soundKey);
             var soundEvent = SoundEvent.of(soundId);
             Registry.register(Registries.SOUND_EVENT, soundId, soundEvent);
         }

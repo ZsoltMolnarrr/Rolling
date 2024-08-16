@@ -1,6 +1,6 @@
 package net.combatroll.mixin;
 
-import net.combatroll.CombatRoll;
+import net.combatroll.CombatRollMod;
 import net.combatroll.internals.RollManager;
 import net.combatroll.internals.RollingEntity;
 import net.minecraft.client.MinecraftClient;
@@ -35,7 +35,7 @@ public class ClientPlayerEntityMixin implements RollingEntity {
     @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/input/Input;tick(ZF)V", shift = At.Shift.AFTER))
     private void tickMovement_ModifyInput(CallbackInfo ci) {
         var clientPlayer = (ClientPlayerEntity) ((Object) this);
-        var config = CombatRoll.config;
+        var config = CombatRollMod.config;
         if (!config.allow_jump_while_rolling && rollManager.isRolling()) {
             clientPlayer.input.jumping = false;
         }
@@ -43,7 +43,7 @@ public class ClientPlayerEntityMixin implements RollingEntity {
 
     @Inject(method = "shouldAutoJump", at = @At("HEAD"), cancellable = true)
     public void shouldAutoJump_HEAD(CallbackInfoReturnable<Boolean> cir) {
-        var config = CombatRoll.config;
+        var config = CombatRollMod.config;
         if (config != null) {
             if (rollManager.isRolling() && !config.allow_auto_jump_while_rolling) {
                 cir.setReturnValue(false);

@@ -13,4 +13,12 @@ public class PlatformImpl {
     public static boolean isModLoaded(String modid) {
         return ModList.get().isLoaded(modid);
     }
+
+    public static Collection<ServerPlayerEntity> tracking(ServerPlayerEntity player) {
+        return (Collection<ServerPlayerEntity>) player.getWorld().getPlayers(); // TODO
+    }
+
+    public static Collection<ServerPlayerEntity> around(ServerWorld world, Vec3d origin, double distance) {
+        return world.getPlayers((player) -> player.getPos().squaredDistance(origin) <= (distance*distance));
+    }
 }

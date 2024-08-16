@@ -14,8 +14,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.tinyconfig.ConfigManager;
 
-public class CombatRoll {
-    public static final String MOD_ID = "combatroll";
+public class CombatRollMod {
+    public static final String ID = "combatroll";
     public static String modName() {
         return I18n.translate("combatroll.mod_name");
     }
@@ -24,7 +24,7 @@ public class CombatRoll {
     public static ConfigManager<EnchantmentsConfig> enchantmentConfig = new ConfigManager<EnchantmentsConfig>
             ("enchantments", new EnchantmentsConfig())
             .builder()
-            .setDirectory(CombatRoll.MOD_ID)
+            .setDirectory(CombatRollMod.ID)
             .sanitize(true)
             .build();
 
@@ -34,6 +34,8 @@ public class CombatRoll {
         config = AutoConfig.getConfigHolder(ServerConfigWrapper.class).getConfig().server;
         enchantmentConfig.refresh();
         ServerNetwork.initializeHandlers();
+        CombatRollMod.configureEnchantments();
+        CombatRollMod.registerEnchantments();
     }
 
     public static void registerAttributes() {
