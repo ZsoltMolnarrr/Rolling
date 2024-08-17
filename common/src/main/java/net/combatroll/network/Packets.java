@@ -90,4 +90,23 @@ public class Packets {
             return ID;
         }
     }
+
+    public record Ack(String code) implements CustomPayload {
+        public static Identifier ID = new Identifier(CombatRollMod.ID, "ack");
+
+        @Override
+        public void write(PacketByteBuf buffer) {
+            buffer.writeString(code);
+        }
+
+        public static Ack read(PacketByteBuf buffer) {
+            var code = buffer.readString();
+            return new Ack(code);
+        }
+
+        @Override
+        public Identifier id() {
+            return ID;
+        }
+    }
 }
