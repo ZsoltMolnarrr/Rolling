@@ -62,7 +62,7 @@ public class Packets {
 
         @Override
         public Identifier id() {
-            return null;
+            return ID;
         }
     }
 

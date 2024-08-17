@@ -26,7 +26,6 @@ public class ClientNetwork {
             rollingPlayer.getRollManager().isEnabled = true;
         }
         var gson = new Gson();
-        System.out.println("Received config: " + packet.json());
         var config = gson.fromJson(packet.json(), ServerConfig.class);
         CombatRollMod.config = config;
     }

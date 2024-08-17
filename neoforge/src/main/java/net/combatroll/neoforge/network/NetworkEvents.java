@@ -47,6 +47,12 @@ public class NetworkEvents {
                 ClientNetwork.handleConfigSync(packet);
             });
         });
+
+        registrar.play(Packets.RollAnimation.ID, Packets.RollAnimation::read, handler -> {
+            handler.client((packet, context) -> {
+                ClientNetwork.handleRollAnimation(packet);
+            });
+        });
     }
 
     public record ConfigurationTask(ServerConfigurationPacketListener listener) implements ICustomConfigurationTask {
