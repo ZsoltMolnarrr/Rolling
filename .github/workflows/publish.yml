@@ -15,7 +15,7 @@ on:
         description: Mod loader
         options: 
         - fabric
-        - forge
+        - neoforge
       release_type:
         type: choice
         description: Release type
