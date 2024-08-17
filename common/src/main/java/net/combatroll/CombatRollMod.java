@@ -35,7 +35,6 @@ public class CombatRollMod {
         enchantmentConfig.refresh();
         ServerNetwork.initializeHandlers();
         CombatRollMod.configureEnchantments();
-        CombatRollMod.registerEnchantments();
     }
 
     public static void registerAttributes() {

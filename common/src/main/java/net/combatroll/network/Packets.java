@@ -3,7 +3,6 @@ package net.combatroll.network;
 import com.google.gson.Gson;
 import net.combatroll.CombatRollMod;
 import net.combatroll.config.ServerConfig;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.Identifier;
@@ -67,7 +66,7 @@ public class Packets {
         }
     }
 
-    public record ConfigSync(String json) {
+    public record ConfigSync(String json) implements CustomPayload {
         public static Identifier ID = new Identifier(CombatRollMod.ID, "config_sync");
 
         public static String serialize(ServerConfig config) {
@@ -75,16 +74,20 @@ public class Packets {
             return gson.toJson(config);
         }
 
-        public PacketByteBuf write() {
-            var buffer = PacketByteBufs.create();
+        @Override
+        public void write(PacketByteBuf buffer) {
             buffer.writeString(json);
-            return buffer;
         }
 
         public static ConfigSync read(PacketByteBuf buffer) {
             var gson = new Gson();
             var json = buffer.readString();
             return new ConfigSync(json);
+        }
+
+        @Override
+        public Identifier id() {
+            return ID;
         }
     }
 }

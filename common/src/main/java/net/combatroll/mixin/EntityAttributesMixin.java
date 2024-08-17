@@ -12,8 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class EntityAttributesMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void static_tail_CombatRoll(CallbackInfo ci) {
-//        if (Platform.Fabric) {
-            CombatRollMod.registerAttributes();
-//        }
+        CombatRollMod.registerAttributes();
     }
 }
