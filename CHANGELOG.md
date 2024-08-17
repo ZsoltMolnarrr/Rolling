@@ -1,3 +1,8 @@
+# 1.4.0
+
+- Add support for NeoForge (goodbye legacy Forge)
+- Rewritten packet handling backbone
+
 # 1.3.4
 
 - Fix roll charges even when paused #45
