@@ -4,7 +4,6 @@ import net.combat_roll.Platform;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.network.PacketDistributor;
