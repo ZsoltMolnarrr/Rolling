@@ -1,12 +1,12 @@
 package net.combat_roll.client;
 
+import net.combat_roll.client.animation.AnimatablePlayer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-import net.combat_roll.client.animation.AnimatablePlayer;
 
 import java.util.Random;
 

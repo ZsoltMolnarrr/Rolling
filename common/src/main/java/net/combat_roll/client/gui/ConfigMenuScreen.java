@@ -1,12 +1,11 @@
 package net.combat_roll.client.gui;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.combat_roll.config.ClientConfigWrapper;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
-import net.combat_roll.config.ClientConfigWrapper;
 
 public class ConfigMenuScreen extends Screen {
     private Screen previous;

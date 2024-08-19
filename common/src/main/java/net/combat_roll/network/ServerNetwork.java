@@ -4,11 +4,11 @@ import com.google.common.collect.Iterables;
 import net.combat_roll.CombatRollMod;
 import net.combat_roll.Platform;
 import net.combat_roll.api.RollInvulnerable;
+import net.combat_roll.api.event.Event;
+import net.combat_roll.api.event.ServerSideRollEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.combat_roll.api.event.Event;
-import net.combat_roll.api.event.ServerSideRollEvents;
 
 public class ServerNetwork {
     public static String configSerialized = "";

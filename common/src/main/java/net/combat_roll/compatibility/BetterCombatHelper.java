@@ -1,8 +1,8 @@
 package net.combat_roll.compatibility;
 
 import net.bettercombat.api.MinecraftClient_BetterCombat;
-import net.minecraft.client.MinecraftClient;
 import net.combat_roll.Platform;
+import net.minecraft.client.MinecraftClient;
 
 public class BetterCombatHelper {
     public static void cancelUpswing() {

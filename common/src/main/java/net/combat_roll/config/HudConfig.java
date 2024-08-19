@@ -1,7 +1,7 @@
 package net.combat_roll.config;
 
-import net.minecraft.util.math.Vec2f;
 import net.combat_roll.client.gui.HudElement;
+import net.minecraft.util.math.Vec2f;
 
 public class HudConfig {
     public HudElement rollWidget;

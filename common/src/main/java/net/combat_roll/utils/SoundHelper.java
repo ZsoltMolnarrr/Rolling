@@ -1,10 +1,10 @@
 package net.combat_roll.utils;
 
+import net.combat_roll.CombatRollMod;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.combat_roll.CombatRollMod;
 
 import java.util.List;
 

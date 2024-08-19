@@ -2,6 +2,7 @@ package net.combat_roll.network;
 
 import com.google.gson.Gson;
 import net.combat_roll.CombatRollMod;
+import net.combat_roll.client.RollEffect;
 import net.combat_roll.config.ServerConfig;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.RegistryByteBuf;
@@ -9,7 +10,6 @@ import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-import net.combat_roll.client.RollEffect;
 
 public class Packets {
     public record RollPublish(int playerId, RollEffect.Visuals visuals, Vec3d velocity) implements CustomPayload {

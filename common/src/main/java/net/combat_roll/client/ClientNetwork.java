@@ -4,9 +4,9 @@ import com.google.gson.Gson;
 import net.combat_roll.CombatRollMod;
 import net.combat_roll.config.ServerConfig;
 import net.combat_roll.internals.RollingEntity;
+import net.combat_roll.network.Packets;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
-import net.combat_roll.network.Packets;
 
 public class ClientNetwork {
     public static void handleRollAnimation(Packets.RollAnimation packet) {

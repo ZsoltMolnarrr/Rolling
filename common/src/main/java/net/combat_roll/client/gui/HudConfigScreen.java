@@ -1,12 +1,12 @@
 package net.combat_roll.client.gui;
 
+import net.combat_roll.client.CombatRollClient;
+import net.combat_roll.config.HudConfig;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec2f;
-import net.combat_roll.client.CombatRollClient;
-import net.combat_roll.config.HudConfig;
 
 public class HudConfigScreen extends Screen {
     private Screen previous;

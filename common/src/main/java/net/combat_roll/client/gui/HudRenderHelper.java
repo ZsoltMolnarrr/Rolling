@@ -1,16 +1,15 @@
 package net.combat_roll.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-
+import net.combat_roll.client.CombatRollClient;
 import net.combat_roll.client.Keybindings;
+import net.combat_roll.internals.RollManager;
 import net.combat_roll.internals.RollingEntity;
 import net.combat_roll.mixin.client.KeybindingAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.combat_roll.internals.RollManager;
-import net.combat_roll.client.CombatRollClient;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

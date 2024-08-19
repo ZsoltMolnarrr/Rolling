@@ -9,16 +9,17 @@ import dev.kosmx.playerAnim.core.data.KeyframeAnimation;
 import dev.kosmx.playerAnim.core.util.Ease;
 import dev.kosmx.playerAnim.core.util.Vec3f;
 import dev.kosmx.playerAnim.impl.IAnimatedPlayer;
+import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationRegistry;
 import net.combat_roll.CombatRollMod;
+import net.combat_roll.client.animation.AdjustmentModifier;
+import net.combat_roll.client.animation.AnimatablePlayer;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.combat_roll.client.animation.AdjustmentModifier;
-import net.combat_roll.client.animation.AnimatablePlayer;
-import net.combat_roll.client.animation.AnimationRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -48,8 +49,7 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity imple
 
     public void playRollAnimation(String animationName, Vec3d direction) {
         try {
-            var player = (PlayerEntity) ((Object)this);
-            KeyframeAnimation animation = AnimationRegistry.animations.get(animationName);
+            KeyframeAnimation animation = PlayerAnimationRegistry.getAnimation(Identifier.of(animationName));
             var copy = animation.mutableCopy();
             lastRollDirection = direction;
 

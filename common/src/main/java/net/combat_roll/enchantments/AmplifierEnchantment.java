@@ -1,9 +1,5 @@
 package net.combat_roll.enchantments;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ItemStack;
-import net.tinyconfig.models.EnchantmentConfig;
 //
 //public class AmplifierEnchantment extends Enchantment implements CustomConditionalEnchantment {
 //    public Operation operation;
