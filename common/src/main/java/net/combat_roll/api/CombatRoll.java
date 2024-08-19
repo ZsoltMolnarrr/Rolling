@@ -50,33 +50,4 @@ public class CombatRoll {
         public static final Entry RECHARGE = entry("recharge", 20, 0.1, 200, true);
         public static final Entry COUNT = entry("count", 1, 0, 20.0, true);
     }
-
-    public enum Type {
-        DISTANCE, RECHARGE, COUNT
-    }
-
-    public static double getAttributeValue(PlayerEntity player, Type type) {
-        switch (type) {
-            case DISTANCE -> {
-                var value = player.getAttributeValue(Attributes.DISTANCE.entry);
-//                var level = EnchantmentHelper.getEquipmentLevel(Enchantments_combat_roll.DISTANCE, player);
-//                value = Enchantments_combat_roll.DISTANCE.apply(value, level);
-                return value;
-            }
-            case RECHARGE -> {
-                var value = player.getAttributeValue(Attributes.RECHARGE.entry);
-//                var chestLevel = EnchantmentHelper.getEquipmentLevel(Enchantments_combat_roll.RECHARGE, player);
-//                value = Enchantments_combat_roll.RECHARGE.apply(value, chestLevel);
-                return value;
-            }
-            case COUNT -> {
-                var value = player.getAttributeValue(Attributes.COUNT.entry);
-//                var level = EnchantmentHelper.getEquipmentLevel(Enchantments_combat_roll.COUNT, player);
-//                value = Enchantments_combat_roll.COUNT.apply(value, level);
-                return value;
-            }
-        }
-        return 1; // Should never happen
-    }
-
 }

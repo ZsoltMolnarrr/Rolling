@@ -11,9 +11,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
 
-import static net.combat_roll.api.CombatRoll.Type.COUNT;
-import static net.combat_roll.api.CombatRoll.Type.RECHARGE;
-
 public class RollManager {
     public boolean isEnabled = true;
     public static int rollDuration() {
@@ -53,7 +50,7 @@ public class RollManager {
     }
 
     public void tick(ClientPlayerEntity player) {
-        maxRolls = (int) CombatRoll.getAttributeValue(player, COUNT);
+        maxRolls = (int) player.getAttributeValue(CombatRoll.Attributes.COUNT.entry);
         timeSinceLastRoll += 1;
         if (availableRolls < maxRolls) {
             currentCooldownProgress += 1;
@@ -83,6 +80,6 @@ public class RollManager {
 
     private void updateCooldownLength(ClientPlayerEntity player) {
         var duration = CombatRollMod.config.roll_cooldown;
-        currentCooldownLength = (int) Math.round(duration * 20F * (20F / CombatRoll.getAttributeValue(player, RECHARGE)));
+        currentCooldownLength = (int) Math.round(duration * 20F * (20F / player.getAttributeValue(CombatRoll.Attributes.RECHARGE.entry)));
     }
 }

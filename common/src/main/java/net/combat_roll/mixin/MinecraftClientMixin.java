@@ -21,7 +21,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static net.combat_roll.api.CombatRoll.Type.DISTANCE;
 import static net.combat_roll.client.RollEffect.Particles.PUFF;
 
 @Mixin(value = MinecraftClient.class, priority = 449)
@@ -117,7 +116,7 @@ public abstract class MinecraftClientMixin {
             }
             direction = direction.rotateY((float) Math.toRadians((-1.0) * player.getYaw()));
             var distance = 0.475 *
-                    (CombatRoll.getAttributeValue(player, DISTANCE)
+                    (player.getAttributeValue(CombatRoll.Attributes.DISTANCE.entry)
                     + CombatRollMod.config.additional_roll_distance);
             direction = direction.multiply(distance);
 
