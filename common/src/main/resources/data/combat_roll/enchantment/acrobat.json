@@ -30,5 +30,5 @@
     "chest"
   ],
   "supported_items": "#minecraft:enchantable/chest_armor",
-  "weight": 2
+  "weight": 5
 }
