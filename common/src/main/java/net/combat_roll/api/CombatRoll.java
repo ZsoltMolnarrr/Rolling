@@ -36,10 +36,6 @@ public class CombatRoll {
                 this.baseValue = baseValue;
             }
 
-            public double asMultiplier(double attributeValue) {
-                return attributeValue / baseValue;
-            }
-
             public void register() {
                 entry = Registry.registerReference(Registries.ATTRIBUTE, id, attribute);
             }
