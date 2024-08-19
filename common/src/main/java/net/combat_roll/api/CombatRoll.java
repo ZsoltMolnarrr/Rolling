@@ -2,7 +2,6 @@ package net.combat_roll.api;
 
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -32,7 +31,7 @@ public class CombatRoll {
 
             public Entry(String name, double baseValue, double minValue, double maxValue, boolean tracked) {
                 this.id = Identifier.of(NAMESPACE, name);
-                this.translationKey = "attribute.name." + "combat_roll" + "." + name;
+                this.translationKey = "attribute.name." + NAMESPACE + "." + name;
                 this.attribute = new ClampedEntityAttribute(translationKey, baseValue, minValue, maxValue).setTracked(tracked);
                 this.baseValue = baseValue;
             }
