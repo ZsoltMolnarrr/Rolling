@@ -1,0 +1,31 @@
+{
+    "combat_roll.mod_name" : "Combat Roll",
+  
+    "keybinds.combat_roll.roll" : "Rolagem",
+  
+    "gui.combat_roll.config_menu" : "Combat Roll configuração",
+    "gui.combat_roll.close" : "Fechar",
+    "gui.combat_roll.settings" : "Configurar",
+    "gui.combat_roll.hud" : "Mova a seta",
+    "gui.combat_roll.corner" : "Canto",
+    "gui.combat_roll.reset" : "Redefinir",
+  
+    "enchantment.combat_roll.longfooted" : "de pés longos",
+    "enchantment.combat_roll.longfooted.desc" : "Aumenta a distância de suas rolagens",
+    "enchantment.combat_roll.acrobat" : "Acrobata",
+    "enchantment.combat_roll.acrobat.desc" : "Reduz o tempo de resfriamento entre suas rolagens",
+    "enchantment.combat_roll.multi_roll" : "Multi-rolagem",
+    "enchantment.combat_roll.multi_roll.desc" : "Concede multiplas rolagens",
+  
+    "attribute.name.combat_roll.distance" : "Distância de rolagem",
+    "attribute.name.combat_roll.count" : "Rolagem Extra",
+    "attribute.name.combat_roll.recharge" : "Recarga da Rolagem",
+  
+    "text.autoconfig.combat_roll.title": "Combat Roll",
+    "text.autoconfig.combat_roll.option.client.playCooldownSound" : "Reproduzir som pronto para resfriamento",
+    "text.autoconfig.combat_roll.option.client.playCooldownFlash": "Flecha intermitente quando o resfriamento estiver pronto",
+    "text.autoconfig.combat_roll.option.client.playRollSound" : "Reproduzir som de rolagem",
+    "text.autoconfig.combat_roll.option.client.hudArrowColor" : "Cor da seta",
+    "text.autoconfig.combat_roll.option.client.hudBackgroundOpacity" : "Opacidade do plano de fundo da seta",
+    "text.autoconfig.combat_roll.option.client.showHUDInCreative" : "Mostrar seta no modo criativo",
+    "text.autoconfig.combat_roll.option.client.showWhenFull" : "Mostrar seta quando cheio"}

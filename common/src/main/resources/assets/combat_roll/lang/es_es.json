@@ -1,0 +1,30 @@
+{
+  "combat_roll.mod_name" : "Voltereta de combate",
+
+  "keybinds.combat_roll.roll" : "Dar la vuelta",
+
+  "gui.combat_roll.config_menu" : "Menú de ajustes",
+  "gui.combat_roll.close" : "Cerrar",
+  "gui.combat_roll.settings" : "Ajustes",
+  "gui.combat_roll.hud" : "Mover HUD",
+  "gui.combat_roll.corner" : "Posición",
+  "gui.combat_roll.reset" : "Resetear",
+  
+  "enchantment.combat_roll.longfooted" : "Piernas largas",
+  "enchantment.combat_roll.longfooted.desc" : "Aumenta la distancia de volteretas",
+  "enchantment.combat_roll.acrobat" : "Acróbata",
+  "enchantment.combat_roll.acrobat.desc" : "Reduce recarga entre volteretas",
+  "enchantment.combat_roll.multi_roll" : "Multi-Voltereta",
+  "enchantment.combat_roll.multi_roll.desc" : "Permite volteretas extras",
+
+  "attribute.name.combat_roll.distance" : "Distancia de voltereta",
+  "attribute.name.combat_roll.count" : "Volteretas extras",
+  "attribute.name.combat_roll.recharge" : "Voltereta recarga",
+
+  "text.autoconfig.combat_roll.title": "Voltereta de combate",
+  "text.autoconfig.combat_roll.option.client.playCooldownSound" : "Hacer sonido de recarga completa",
+  "text.autoconfig.combat_roll.option.client.playCooldownFlash": "Hacer destello de HUD en recarga completa",
+  "text.autoconfig.combat_roll.option.client.playRollSound" : "Hacer sonido de voltereta",
+  "text.autoconfig.combat_roll.option.client.hudArrowColor" : "Color de HUD",
+  "text.autoconfig.combat_roll.option.client.hudBackgroundOpacity" : "Opacidad de HUD"
+}

@@ -1,0 +1,30 @@
+{
+  "combat_roll.mod_name" : "Combat Roll",
+
+  "keybinds.combat_roll.roll" : "Сделать кувырок",
+
+  "gui.combat_roll.config_menu" : "Меню Combat Roll",
+  "gui.combat_roll.close" : "Закрыть",
+  "gui.combat_roll.settings" : "Настройки",
+  "gui.combat_roll.hud" : "Расположение HUD",
+  "gui.combat_roll.corner" : "Угол положения HUD",
+  "gui.combat_roll.reset" : "Сбросить",
+
+  "enchantment.combat_roll.longfooted" : "Акробатика",
+  "enchantment.combat_roll.longfooted.desc" : "Повышает дальность кувырка",
+  "enchantment.combat_roll.acrobat" : "Акробат",
+  "enchantment.combat_roll.acrobat.desc" : "Уменьшает время перезарядки кувырка",
+  "enchantment.combat_roll.multi_roll" : "Повторные кувырки",
+  "enchantment.combat_roll.multi_roll.desc" : "Предоставляет дополнительный кувырок",
+
+  "attribute.name.combat_roll.distance" : "Дальность кувырка",
+  "attribute.name.combat_roll.count" : "Дополнитеьный кувырок",
+  "attribute.name.combat_roll.recharge" : "Перезарядка кувырка",
+
+  "text.autoconfig.combat_roll.title": "Combat Roll",
+  "text.autoconfig.combat_roll.option.client.playCooldownSound" : "Проигрывать звук полной перезарядки",
+  "text.autoconfig.combat_roll.option.client.playCooldownFlash": "Мигание элементов HUD при полной перезарядке",
+  "text.autoconfig.combat_roll.option.client.playRollSound" : "Проигрывать звук кувырка",
+  "text.autoconfig.combat_roll.option.client.hudArrowColor" : "Цвет интерфейса",
+  "text.autoconfig.combat_roll.option.client.hudBackgroundOpacity" : "Прозрачность интерфейса"
+}

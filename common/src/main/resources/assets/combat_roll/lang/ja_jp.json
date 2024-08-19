@@ -1,0 +1,32 @@
+{
+  "combat_roll.mod_name" : "Combat Roll",
+
+  "keybinds.combat_roll.roll" : "ロール",
+
+  "gui.combat_roll.config_menu" : "Combat Rollのコンフィグ",
+  "gui.combat_roll.close" : "閉じる",
+  "gui.combat_roll.settings" : "設定",
+  "gui.combat_roll.hud" : "矢印を移動します",
+  "gui.combat_roll.corner" : "角",
+  "gui.combat_roll.reset" : "リセット",
+
+  "enchantment.combat_roll.longfooted" : "ロングフット",
+  "enchantment.combat_roll.longfooted.desc" : "ロールの距離が伸びます。",
+  "enchantment.combat_roll.acrobat" : "アクロバット",
+  "enchantment.combat_roll.acrobat.desc" : "ロール間のクールダウン時間を短縮します。",
+  "enchantment.combat_roll.multi_roll" : "マルチロール",
+  "enchantment.combat_roll.multi_roll.desc" : "追加のロールを付与します。",
+
+  "attribute.name.combat_roll.distance" : "ロール距離",
+  "attribute.name.combat_roll.count" : "エクストラロール",
+  "attribute.name.combat_roll.recharge" : "ロールリチャージ",
+
+  "text.autoconfig.combat_roll.title": "Combat Roll",
+  "text.autoconfig.combat_roll.option.client.playCooldownSound" : "クールダウン準備完了音を再生します。",
+  "text.autoconfig.combat_roll.option.client.playCooldownFlash": "クールダウンの準備ができたら矢印が点滅します。",
+  "text.autoconfig.combat_roll.option.client.playRollSound" : "ロールの音を流します。",
+  "text.autoconfig.combat_roll.option.client.hudArrowColor" : "矢印の色",
+  "text.autoconfig.combat_roll.option.client.hudBackgroundOpacity" : "矢印の背景の不透明度",
+  "text.autoconfig.combat_roll.option.client.showHUDInCreative" : "クリエイティブモードで矢印を表示します。",
+  "text.autoconfig.combat_roll.option.client.showWhenFull" : "いっぱいの場合は矢印を表示します。"
+}

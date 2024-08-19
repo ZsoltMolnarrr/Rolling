@@ -1,6 +1,6 @@
 package net.fabricmc.fabric.api.networking.v1;
 
-import net.combatroll.CombatRoll;
+import net.combat_roll.combat_roll;
 import net.minecraft.util.Identifier;
 import net.minecraftforge.network.ChannelBuilder;
 import net.minecraftforge.network.SimpleChannel;
@@ -10,7 +10,7 @@ public class NetworkHandler {
     private static int ID = 0;
 
     public static void registerMessages(){
-        INSTANCE = ChannelBuilder.named(Identifier.of(CombatRoll.MOD_ID, "network"))
+        INSTANCE = ChannelBuilder.named(Identifier.of(combat_roll.MOD_ID, "network"))
                 .networkProtocolVersion(1)
                 .acceptedVersions((s, v) -> true)
                 .simpleChannel();

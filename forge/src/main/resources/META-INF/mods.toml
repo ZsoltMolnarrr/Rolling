@@ -11,11 +11,11 @@ loaderVersion = "[39,)" #mandatory This is typically bumped every Minecraft vers
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license = "GPL-3.0"
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL = "https://github.com/ZsoltMolnarrr/CombatRoll/issues"
+issueTrackerURL = "https://github.com/ZsoltMolnarrr/combat_roll/issues"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
-modId = "combatroll" #mandatory
+modId = "combat_roll" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${version} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
@@ -45,7 +45,7 @@ description = '''
 Adds combat roll ability, with related attributes and enchantments.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.combatroll]] #optional
+[[dependencies.combat_roll]] #optional
 # the modid of the dependency
 modId = "forge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
@@ -57,26 +57,26 @@ ordering = "NONE"
 # Side this dependency is applied on - BOTH, CLIENT or SERVER
 side = "BOTH"
 # Here's another dependency
-[[dependencies.combatroll]]
+[[dependencies.combat_roll]]
 modId = "minecraft"
 mandatory = true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="[1.20,)"
 ordering = "NONE"
 side = "BOTH"
-[[dependencies.combatroll]]
+[[dependencies.combat_roll]]
 modId="playeranimator"
 mandatory=true
 versionRange="[1,)"
 ordering="AFTER"
 side="BOTH"
-[[dependencies.combatroll]]
+[[dependencies.combat_roll]]
 modId="cloth_config"
 mandatory=true
 versionRange="[11,)"
 ordering="AFTER"
 side="BOTH"
-[[dependencies.combatroll]]
+[[dependencies.combat_roll]]
 modId="bettercombat"
 mandatory=false
 versionRange="[1.7.1,)"

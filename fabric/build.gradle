@@ -71,7 +71,7 @@ processResources {
 shadowJar {
     configurations = [project.configurations.shadowBundle]
     archiveClassifier.set("dev-shadow")
-    relocate 'net.tinyconfig', 'net.combatroll.tinyconfig'
+    relocate 'net.tinyconfig', 'net.combat_roll.tinyconfig'
 }
 
 remapJar {

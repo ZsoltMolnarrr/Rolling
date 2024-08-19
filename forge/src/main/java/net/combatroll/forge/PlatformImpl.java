@@ -1,9 +1,9 @@
-package net.combatroll.forge;
+package net.combat_roll.forge;
 
 import net.minecraftforge.fml.ModList;
-import net.combatroll.Platform;
+import net.combat_roll.Platform;
 
-import static net.combatroll.Platform.Type.FORGE;
+import static net.combat_roll.Platform.Type.FORGE;
 
 public class PlatformImpl {
     public static Platform.Type getPlatformType() {

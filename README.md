@@ -12,12 +12,12 @@
 
 - Adds Combat Roll ability for players, press `R` to roll (by default)
 - Adds entity attributes to improve rolling capabilities
-  - `combatroll:distance` determines how far the player rolls (the default distance is 3 blocks, server configurable)
-    - Example for increasing the rollign range by 3: `/give @s leather_boots{AttributeModifiers:[{AttributeName:"combatroll:distance", Name:"testing", Amount:3.0, Operation:0,Slot:"feet",UUID:[I; 66453, 79497593, -201178, -16957605]}]} 1`
-  - `combatroll:recharge` determines how quickly the cooldown of the roll ability recovers (the default cooldown is 4 seconds, server configurable)
-    - Example for increasing the recharge speed by +50%: `/give @s leather_leggings{AttributeModifiers:[{AttributeName:"combatroll:recharge", Name:"testing", Amount:0.5, Operation:1,Slot:"legs",UUID:[I; 66453, 79497593, -201177, -16957605]}]} 1`
-  - `combatroll:count` determines how many times a player can roll before having to wait for recharging (by default a player has 1 roll)
-    - Example for increasing the number of rolls by 2: `/give @s leather_helmet{AttributeModifiers:[{AttributeName:"combatroll:count", Name:"testing", Amount:2, Operation:0,Slot:"head",UUID:[I; 66453, 79497594, -201177, -16957605]}]} 1`
+  - `combat_roll:distance` determines how far the player rolls (the default distance is 3 blocks, server configurable)
+    - Example for increasing the rollign range by 3: `/give @s leather_boots{AttributeModifiers:[{AttributeName:"combat_roll:distance", Name:"testing", Amount:3.0, Operation:0,Slot:"feet",UUID:[I; 66453, 79497593, -201178, -16957605]}]} 1`
+  - `combat_roll:recharge` determines how quickly the cooldown of the roll ability recovers (the default cooldown is 4 seconds, server configurable)
+    - Example for increasing the recharge speed by +50%: `/give @s leather_leggings{AttributeModifiers:[{AttributeName:"combat_roll:recharge", Name:"testing", Amount:0.5, Operation:1,Slot:"legs",UUID:[I; 66453, 79497593, -201177, -16957605]}]} 1`
+  - `combat_roll:count` determines how many times a player can roll before having to wait for recharging (by default a player has 1 roll)
+    - Example for increasing the number of rolls by 2: `/give @s leather_helmet{AttributeModifiers:[{AttributeName:"combat_roll:count", Name:"testing", Amount:2, Operation:0,Slot:"head",UUID:[I; 66453, 79497594, -201177, -16957605]}]} 1`
 - Adds new enchantments related to the rolling ability
   - `Longfooted` can be enchanted on boots
     - Increases the distance of your rolls (by 1 block / level)
@@ -72,7 +72,7 @@ dependencies {
 In `fabric.mod.json` add a dependency to the mod:
 ```json
   "depends": {
-    "combatroll": ">=1.0.0"
+    "combat_roll": ">=1.0.0"
   },
 ```
 
@@ -86,7 +86,7 @@ dependencies {
 ```
 In `mods.toml` add a dependency to the mod:
 ```
-modId="combatroll"
+modId="combat_roll"
 mandatory=true
 versionRange="[1.0.0,)"
 ordering="AFTER"

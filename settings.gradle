@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'combatroll'
+rootProject.name = 'combat_roll'
 
 include 'common'
 include 'fabric'

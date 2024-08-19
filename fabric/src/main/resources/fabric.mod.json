@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "combatroll",
+  "id": "combat_roll",
   "version": "${version}",
   "name": "Combat Roll",
   "description": "Adds combat roll ability, with related attributes and enchantments.",
@@ -8,25 +8,25 @@
     "Daedelus"
   ],
   "contact": {
-    "repo": "https://github.com/ZsoltMolnarrr/CombatRoll",
-    "issues": "https://github.com/ZsoltMolnarrr/CombatRoll/issues"
+    "repo": "https://github.com/ZsoltMolnarrr/combat_roll",
+    "issues": "https://github.com/ZsoltMolnarrr/combat_roll/issues"
   },
   "license": "GPL-3.0",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.combatroll.fabric.client.CombatRollClientModFabric"
+      "net.combat_roll.fabric.client.CombatRollClientModFabric"
     ],
     "main": [
-      "net.combatroll.fabric.CombatRollModFabric"
+      "net.combat_roll.fabric.CombatRollModFabric"
     ],
     "modmenu": [
-      "net.combatroll.fabric.client.ModMenuIntegration"
+      "net.combat_roll.fabric.client.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "combatroll.mixins.json"
+    "combat_roll.mixins.json"
   ],
   "depends": {
     "minecraft": ">=1.20.3",
