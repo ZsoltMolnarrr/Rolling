@@ -11,51 +11,54 @@ import net.minecraft.server.network.ServerPlayerConfigurationTask;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.network.configuration.ICustomConfigurationTask;
-import net.neoforged.neoforge.network.event.OnGameConfigurationEvent;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
-import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
+import net.neoforged.neoforge.network.event.RegisterConfigurationTasksEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 import java.util.function.Consumer;
 
-@Mod.EventBusSubscriber(modid = CombatRollMod.ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CombatRollMod.ID, bus = EventBusSubscriber.Bus.MOD)
 public class NetworkEvents {
     @SubscribeEvent
-    public static void register(final OnGameConfigurationEvent event) {
+    public static void register(final RegisterConfigurationTasksEvent event) {
         event.register(new ConfigurationTask(event.getListener()));
     }
 
     @SubscribeEvent
-    public static void register(final RegisterPayloadHandlerEvent event) {
-        final IPayloadRegistrar registrar = event.registrar(CombatRollMod.ID);
+    public static void register(final RegisterPayloadHandlersEvent event) {
+        final PayloadRegistrar registrar = event.registrar("1");
 
         // Server
 
-        registrar.play(Packets.RollPublish.ID, Packets.RollPublish::read, handler -> {
-            handler.server((packet, context) -> {
-                var player = (ServerPlayerEntity)context.player().get();
-                var server = player.server;
-                ServerNetwork.handleRollPublish(packet, server, player);
-            });
+        registrar.configurationToServer(Packets.Ack.PACKET_ID, Packets.Ack.CODEC, (payload, context) -> {
+            if (payload.code().equals(ConfigurationTask.ID.toString())) {
+                context.finishCurrentTask(ConfigurationTask.KEY);
+            }
+        });
+
+        registrar.playToServer(Packets.RollPublish.PACKET_ID, Packets.RollPublish.CODEC, (packet, context) -> {
+            var player = (ServerPlayerEntity)context.player();
+            var server = player.server;
+            ServerNetwork.handleRollPublish(packet, server, player);
         });
 
         // Client
 
-        registrar.configuration(Packets.ConfigSync.ID, Packets.ConfigSync::read, handler -> {
-            handler.client((packet, context) -> {
-                ClientNetwork.handleConfigSync(packet);
-            });
+        registrar.configurationToClient(Packets.ConfigSync.PACKET_ID, Packets.ConfigSync.CODEC, (packet, context) -> {
+            ClientNetwork.handleConfigSync(packet);
+            context.reply(new Packets.Ack(ConfigurationTask.ID.toString()));
         });
 
-        registrar.play(Packets.RollAnimation.ID, Packets.RollAnimation::read, handler -> {
-            handler.client((packet, context) -> {
-                ClientNetwork.handleRollAnimation(packet);
-            });
+        registrar.playToClient(Packets.RollAnimation.PACKET_ID, Packets.RollAnimation.CODEC, (packet, context) -> {
+            ClientNetwork.handleRollAnimation(packet);
         });
     }
 
     public record ConfigurationTask(ServerConfigurationPacketListener listener) implements ICustomConfigurationTask {
+        public static final Identifier ID = Identifier.of(CombatRollMod.ID, "config");
         public static final ServerPlayerConfigurationTask.Key KEY = new ServerPlayerConfigurationTask.Key(Identifier.of(CombatRollMod.ID, "config"));
         @Override
         public void run(Consumer<CustomPayload> sender) {
@@ -63,7 +66,6 @@ public class NetworkEvents {
             var configString = gson.toJson(CombatRollMod.config);
             var configPayload = new Packets.ConfigSync(configString);
             sender.accept(configPayload);
-            listener.onTaskFinished(KEY);
         }
 
         @Override

@@ -6,12 +6,13 @@ import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 @Mod(CombatRollMod.ID)
 public final class CombatRollModNeoForge {
-    public CombatRollModNeoForge(IEventBus modEventBus) {
+    public CombatRollModNeoForge(IEventBus modEventBus, ModContainer modContainer) {
         CombatRollMod.init();
         SOUND_EVENTS.register(modEventBus);
     }
