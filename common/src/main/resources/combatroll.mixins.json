@@ -9,8 +9,7 @@
     "EntityAttributesMixin",
     "LivingEntityInvulnerable",
     "PlayerEntityAccessor",
-    "PlayerEntityMixin",
-    "RegistriesMixin"
+    "PlayerEntityMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",

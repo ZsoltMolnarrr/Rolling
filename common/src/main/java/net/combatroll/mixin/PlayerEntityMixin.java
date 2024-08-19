@@ -15,7 +15,7 @@ abstract class PlayerEntityMixin {
             require = 1, allow = 1, at = @At("RETURN"))
     private static void addAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir) {
         for (var attribute: EntityAttributes_CombatRoll.all) {
-            cir.getReturnValue().add(attribute);
+            cir.getReturnValue().add(attribute.entry);
         }
     }
 }

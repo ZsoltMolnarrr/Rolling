@@ -8,6 +8,7 @@ import net.combatroll.mixin.client.KeybindingAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.util.Identifier;
 import net.combatroll.internals.RollManager;
 import net.combatroll.client.CombatRollClient;
@@ -18,8 +19,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class HudRenderHelper {
-    private static final Identifier ARROW = new Identifier("combatroll", "textures/hud/arrow.png");
-    private static final Identifier ARROW_BACKGROUND = new Identifier("combatroll", "textures/hud/arrow_background.png");
+    private static final Identifier ARROW = Identifier.of("combatroll", "textures/hud/arrow.png");
+    private static final Identifier ARROW_BACKGROUND = Identifier.of("combatroll", "textures/hud/arrow_background.png");
 
     public static void render(DrawContext context, float tickDelta) {
         var config = CombatRollClient.config;

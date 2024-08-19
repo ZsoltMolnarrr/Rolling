@@ -19,8 +19,8 @@ public class CombatRollClientModFabric implements ClientModInitializer {
             KeyBindingHelper.registerKeyBinding(keybinding);
         }
 
-        HudRenderCallback.EVENT.register((DrawContext context, float tickDelta) -> {
-            HudRenderHelper.render(context, tickDelta);
+        HudRenderCallback.EVENT.register((context, counter) -> {
+            HudRenderHelper.render(context, counter.getTickDelta(true));
         });
 
         ClientLifecycleEvents.CLIENT_STARTED.register((client) -> {

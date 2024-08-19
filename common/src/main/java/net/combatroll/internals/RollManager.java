@@ -74,7 +74,7 @@ public class RollManager {
         currentCooldownProgress = 0;
         updateCooldownLength(player);
         if (CombatRollClient.config.playCooldownSound) {
-            var cooldownReady = Registries.SOUND_EVENT.get(new Identifier("combatroll:roll_cooldown_ready"));
+            var cooldownReady = Registries.SOUND_EVENT.get(Identifier.of("combatroll:roll_cooldown_ready"));
             if (cooldownReady != null) {
                 player.getWorld().playSound(player.getX(), player.getY(), player.getZ(), cooldownReady, SoundCategory.PLAYERS, 1, 1, false);
             }

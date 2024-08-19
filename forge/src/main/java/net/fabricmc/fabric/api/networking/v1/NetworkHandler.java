@@ -10,7 +10,7 @@ public class NetworkHandler {
     private static int ID = 0;
 
     public static void registerMessages(){
-        INSTANCE = ChannelBuilder.named(new Identifier(CombatRoll.MOD_ID, "network"))
+        INSTANCE = ChannelBuilder.named(Identifier.of(CombatRoll.MOD_ID, "network"))
                 .networkProtocolVersion(1)
                 .acceptedVersions((s, v) -> true)
                 .simpleChannel();

@@ -20,6 +20,6 @@ public final class CombatRollModNeoForge {
             DeferredRegister.create(Registries.SOUND_EVENT, CombatRollMod.ID);
 
     static {
-        SoundHelper.soundKeys.forEach(soundKey -> SOUND_EVENTS.register(soundKey, () -> SoundEvent.of(new Identifier(CombatRollMod.ID, soundKey))));
+        SoundHelper.soundKeys.forEach(soundKey -> SOUND_EVENTS.register(soundKey, () -> SoundEvent.of(Identifier.of(CombatRollMod.ID, soundKey))));
     }
 }

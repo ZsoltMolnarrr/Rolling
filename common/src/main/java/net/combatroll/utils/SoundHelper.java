@@ -16,7 +16,7 @@ public class SoundHelper {
 
     public static void registerSounds() {
         for (var soundKey: soundKeys) {
-            var soundId = new Identifier(CombatRollMod.ID, soundKey);
+            var soundId = Identifier.of(CombatRollMod.ID, soundKey);
             var soundEvent = SoundEvent.of(soundId);
             Registry.register(Registries.SOUND_EVENT, soundId, soundEvent);
         }

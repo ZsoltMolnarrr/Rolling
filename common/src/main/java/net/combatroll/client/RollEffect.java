@@ -20,7 +20,7 @@ public record RollEffect(Visuals visuals, String soundId) {
     public static void playVisuals(Visuals visuals, PlayerEntity player, Vec3d direction) {
         ((AnimatablePlayer)player).playRollAnimation(visuals.animationName(), direction);
         if (CombatRollClient.config.playRollSound) {
-            var sound = Registries.SOUND_EVENT.get(new Identifier("combatroll:roll"));
+            var sound = Registries.SOUND_EVENT.get(Identifier.of("combatroll:roll"));
             if (sound != null) {
                 player.getWorld().playSound(player.getX(), player.getY(), player.getZ(), sound, SoundCategory.PLAYERS, 1, 1, true);
             }

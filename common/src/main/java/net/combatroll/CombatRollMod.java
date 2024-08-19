@@ -37,22 +37,16 @@ public class CombatRollMod {
         CombatRollMod.configureEnchantments();
     }
 
-    public static void registerAttributes() {
-        Registry.register(Registries.ATTRIBUTE, EntityAttributes_CombatRoll.distanceId, EntityAttributes_CombatRoll.DISTANCE);
-        Registry.register(Registries.ATTRIBUTE, EntityAttributes_CombatRoll.rechargeId, EntityAttributes_CombatRoll.RECHARGE);
-        Registry.register(Registries.ATTRIBUTE, EntityAttributes_CombatRoll.countId, EntityAttributes_CombatRoll.COUNT);
-    }
-
     public static void configureEnchantments() {
         var config = enchantmentConfig.value;
-        Enchantments_CombatRoll.DISTANCE.properties = config.longfooted;
-        Enchantments_CombatRoll.RECHARGE.properties = config.acrobat;
-        Enchantments_CombatRoll.COUNT.properties = config.multi_roll;
+//        Enchantments_CombatRoll.DISTANCE.properties = config.longfooted;
+//        Enchantments_CombatRoll.RECHARGE.properties = config.acrobat;
+//        Enchantments_CombatRoll.COUNT.properties = config.multi_roll;
     }
 
     public static void registerEnchantments() {
-        Registry.register(Registries.ENCHANTMENT, Enchantments_CombatRoll.distanceId, Enchantments_CombatRoll.DISTANCE);
-        Registry.register(Registries.ENCHANTMENT, Enchantments_CombatRoll.rechargeId, Enchantments_CombatRoll.RECHARGE);
-        Registry.register(Registries.ENCHANTMENT, Enchantments_CombatRoll.countId, Enchantments_CombatRoll.COUNT);
+//        Registry.register(Registries.ENCHANTMENT, Enchantments_CombatRoll.distanceId, Enchantments_CombatRoll.DISTANCE);
+//        Registry.register(Registries.ENCHANTMENT, Enchantments_CombatRoll.rechargeId, Enchantments_CombatRoll.RECHARGE);
+//        Registry.register(Registries.ENCHANTMENT, Enchantments_CombatRoll.countId, Enchantments_CombatRoll.COUNT);
     }
 }

@@ -56,7 +56,7 @@ public class NetworkEvents {
     }
 
     public record ConfigurationTask(ServerConfigurationPacketListener listener) implements ICustomConfigurationTask {
-        public static final ServerPlayerConfigurationTask.Key KEY = new ServerPlayerConfigurationTask.Key(new Identifier(CombatRollMod.ID, "config"));
+        public static final ServerPlayerConfigurationTask.Key KEY = new ServerPlayerConfigurationTask.Key(Identifier.of(CombatRollMod.ID, "config"));
         @Override
         public void run(Consumer<CustomPayload> sender) {
             var gson = new Gson();

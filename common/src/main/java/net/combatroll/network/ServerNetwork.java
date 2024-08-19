@@ -24,8 +24,8 @@ public class ServerNetwork {
         final var forwardPacket = new Packets.RollAnimation(player.getId(), packet.visuals(), packet.velocity());
         Platform.tracking(player).forEach(serverPlayer -> {
             try {
-                if (serverPlayer.getId() != player.getId() && Platform.networkS2C_CanSend(serverPlayer, Packets.RollAnimation.ID)) {
-                    Platform.networkS2C_Send(serverPlayer, Packets.RollAnimation.ID, forwardPacket);
+                if (serverPlayer.getId() != player.getId() && Platform.networkS2C_CanSend(serverPlayer, Packets.RollAnimation.PACKET_ID)) {
+                    Platform.networkS2C_Send(serverPlayer, forwardPacket);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

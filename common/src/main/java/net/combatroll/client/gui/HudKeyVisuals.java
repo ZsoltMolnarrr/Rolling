@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 import java.util.Map;
 
 public class HudKeyVisuals {
-    private static final Drawable.Texture mouseTexture = new Drawable.Texture(new Identifier(CombatRollMod.ID, "textures/hud/widgets.png"), 256, 256);
+    private static final Drawable.Texture mouseTexture = new Drawable.Texture(Identifier.of(CombatRollMod.ID, "textures/hud/widgets.png"), 256, 256);
     public static Map<String, Drawable.Component> custom = Map.ofEntries(
             Map.entry("key.mouse.left", new Drawable.Component(
                     new Drawable.Draw(0, 0, 10, 12),

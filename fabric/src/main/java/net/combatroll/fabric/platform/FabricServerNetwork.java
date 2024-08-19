@@ -19,18 +19,18 @@ public class FabricServerNetwork {
                 handler.addTask(new ConfigurationTask(Packets.ConfigSync.serialize(CombatRollMod.config)));
             }
         });
-        ServerConfigurationNetworking.registerGlobalReceiver(Packets.Ack.ID, (server, handler, buf, responseSender) -> {
-            var packet = Packets.Ack.read(buf);
-            // Warning: if you do not call completeTask, the client gets stuck!
+
+        PayloadTypeRegistry.configurationC2S().register(Packets.Ack.PACKET_ID, Packets.Ack.CODEC);
+        ServerConfigurationNetworking.registerGlobalReceiver(Packets.Ack.PACKET_ID, (packet, context) -> {
             if (packet.code().equals(ConfigurationTask.name)) {
-                handler.completeTask(ConfigurationTask.KEY);
+                context.networkHandler().completeTask(ConfigurationTask.KEY);
             }
         });
 
         // Play stage
-        ServerPlayNetworking.registerGlobalReceiver(Packets.RollPublish.ID, (server, player, handler, buf, responseSender) -> {
-            var packet = Packets.RollPublish.read(buf);
-            ServerNetwork.handleRollPublish(packet, server, player);
+        PayloadTypeRegistry.playC2S().register(Packets.RollPublish.PACKET_ID, Packets.RollPublish.CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(Packets.RollPublish.PACKET_ID, (packet, context) -> {
+            ServerNetwork.handleRollPublish(packet, context.server(), context.player());
         });
     }
 
@@ -45,9 +45,7 @@ public class FabricServerNetwork {
 
         @Override
         public void sendPacket(Consumer<Packet<?>> sender) {
-            var buffer = PacketByteBufs.create();
-            new Packets.ConfigSync(this.configString).write(buffer);
-            sender.accept(ServerConfigurationNetworking.createS2CPacket(Packets.ConfigSync.ID, buffer));
+            sender.accept(ServerConfigurationNetworking.createS2CPacket(new Packets.ConfigSync(this.configString)));
         }
     }
 }

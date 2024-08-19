@@ -148,9 +148,7 @@ public abstract class MinecraftClientMixin {
             rollManager.onRoll(player);
 
             var rollVisuals = new RollEffect.Visuals(CombatRollMod.ID + ":roll", PUFF);
-            Platform.networkC2S_Send(
-                    Packets.RollPublish.ID,
-                    new Packets.RollPublish(player.getId(), rollVisuals, direction));
+            Platform.networkC2S_Send(new Packets.RollPublish(player.getId(), rollVisuals, direction));
             RollEffect.playVisuals(rollVisuals, player, direction);
         }
     }

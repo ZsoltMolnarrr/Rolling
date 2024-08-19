@@ -47,17 +47,17 @@ public class Platform {
     }
 
     @ExpectPlatform
-    public static boolean networkS2C_CanSend(ServerPlayerEntity player, Identifier packetId) {
+    public static boolean networkS2C_CanSend(ServerPlayerEntity player, CustomPayload.Id<?> packetId) {
         throw new AssertionError();
     }
 
     @ExpectPlatform
-    public static void networkS2C_Send(ServerPlayerEntity player, Identifier packetId, CustomPayload payload) {
+    public static void networkS2C_Send(ServerPlayerEntity player, CustomPayload payload) {
         throw new AssertionError();
     }
 
     @ExpectPlatform
-    public static void networkC2S_Send(Identifier packetId, CustomPayload payload) {
+    public static void networkC2S_Send(CustomPayload payload) {
         throw new AssertionError();
     }
 }
