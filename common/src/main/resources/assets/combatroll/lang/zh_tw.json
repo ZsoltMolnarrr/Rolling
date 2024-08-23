@@ -1,0 +1,34 @@
+{
+  "combatroll.mod_name" : "戰鬥翻滾",
+
+  "keybinds.combatroll.roll" : "翻滾",
+
+  "gui.combatroll.config_menu" : "翻滾設定",
+  "gui.combatroll.close" : "關閉",
+  "gui.combatroll.settings" : "設定",
+  "gui.combatroll.hud" : "移動箭頭",
+  "gui.combatroll.corner" : "變更角落位置",
+  "gui.combatroll.reset" : "重設",
+
+  "enchantment.combatroll.longfooted" : "長腿",
+  "enchantment.combatroll.longfooted.desc" : "增加你的翻滾距離",
+  "enchantment.combatroll.acrobat" : "雜技演員",
+  "enchantment.combatroll.acrobat.desc" : "減少你的翻滾冷卻時間",
+  "enchantment.combatroll.multi_roll" : "多重翻滾",
+  "enchantment.combatroll.multi_roll.desc" : "賦予額外的翻滾次數",
+
+  "attribute.name.combat_roll.distance" : "翻滾距離",
+  "attribute.name.combat_roll.count" : "額外翻滾次數",
+  "attribute.name.combat_roll.recharge" : "翻滾充能",
+
+  "text.autoconfig.combatroll.title": "戰鬥翻滾",
+  "text.autoconfig.combatroll.option.client.playCooldownSound" : "播放冷卻完成音效",
+  "text.autoconfig.combatroll.option.client.playCooldownFlash": "冷卻完成時閃爍箭頭",
+  "text.autoconfig.combatroll.option.client.playRollSound" : "播放翻滾音效",
+  "text.autoconfig.combatroll.option.client.hudArrowColor" : "箭頭顏色",
+  "text.autoconfig.combatroll.option.client.hudBackgroundOpacity" : "箭頭背景不透明度",
+  "text.autoconfig.combatroll.option.client.showHUDInCreative" : "在創造模式顯示箭頭",
+  "text.autoconfig.combatroll.option.client.showWhenFull" : "充能完成時顯示箭頭",
+  "text.autoconfig.combatroll.option.client.showKeybinding" : "在 HUD 上顯示按鍵綁定",
+  "text.autoconfig.combatroll.option.client.keybindingLabelPosition" : "按鍵綁定標籤位置"
+}
