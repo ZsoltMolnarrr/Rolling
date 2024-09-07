@@ -1,3 +1,8 @@
+# 2.0.1
+
+- (NeoForge) Fix faulty inclusion of TinyConfig, crashing alongside Better Combat mod
+- Support Minecraft 1.21 and 1.21.1
+
 # 1.4.0
 
 - Add support for NeoForge (goodbye legacy Forge)
