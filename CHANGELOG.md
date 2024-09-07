@@ -1,6 +1,7 @@
 # 2.0.1
 
 - (NeoForge) Fix faulty inclusion of TinyConfig, crashing alongside Better Combat mod
+- (Fabric) Fix connection failure to dedicated servers
 - Support Minecraft 1.21 and 1.21.1
 
 # 1.4.0
