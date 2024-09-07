@@ -53,7 +53,7 @@ dependencies {
 
     modImplementation("dev.kosmx.player-anim:player-animation-lib-forge:${project.player_anim_version}")
     modApi("me.shedaniel.cloth:cloth-config-neoforge:${project.cloth_config_version}")
-    shadowBundle(common("com.github.ZsoltMolnarrr:TinyConfig:${project.tiny_config_version}"))
+    include(implementation("com.github.ZsoltMolnarrr:TinyConfig:${project.tiny_config_version}"))
 }
 
 processResources {
