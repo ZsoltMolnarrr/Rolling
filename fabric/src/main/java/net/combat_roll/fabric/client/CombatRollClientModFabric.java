@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.combat_roll.client.CombatRollClient;
 import net.combat_roll.client.Keybindings;
 import net.combat_roll.client.gui.HudRenderHelper;
+import net.minecraft.client.MinecraftClient;
 
 public class CombatRollClientModFabric implements ClientModInitializer {
     @Override
@@ -16,7 +17,9 @@ public class CombatRollClientModFabric implements ClientModInitializer {
         }
 
         HudRenderCallback.EVENT.register((context, counter) -> {
-            HudRenderHelper.render(context, counter.getTickDelta(true));
+            if (!MinecraftClient.getInstance().options.hudHidden) {
+                HudRenderHelper.render(context, counter.getTickDelta(true));
+            }
         });
 
         FabricClientNetwork.init();
