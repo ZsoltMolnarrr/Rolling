@@ -1,3 +1,7 @@
+# 2.0.2
+
+- Fix HUD widget showing while HUD is hidden #53
+
 # 2.0.1
 
 - (NeoForge) Fix faulty inclusion of TinyConfig, crashing alongside Better Combat mod
