@@ -16,6 +16,7 @@ public class CombatRollClientModFabric implements ClientModInitializer {
             KeyBindingHelper.registerKeyBinding(keybinding);
         }
 
+        System.out.println("HudRenderCallback.EVENT.register - Combat Roll");
         HudRenderCallback.EVENT.register((context, counter) -> {
             if (!MinecraftClient.getInstance().options.hudHidden) {
                 HudRenderHelper.render(context, counter.getTickDelta(true));

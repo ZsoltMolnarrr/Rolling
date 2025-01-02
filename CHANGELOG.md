@@ -1,3 +1,7 @@
+# 2.0.3
+
+- Fix potential HUD rendering issues
+
 # 2.0.2
 
 - Fix HUD widget showing while HUD is hidden #53

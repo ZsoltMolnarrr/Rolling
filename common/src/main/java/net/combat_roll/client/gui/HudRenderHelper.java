@@ -56,6 +56,7 @@ public class HudRenderHelper {
         int drawY = (int) (originPoint.y + drawOffset.y - (widgetHeight) / 2);
         int drawnWith = 0;
         RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
         for(var element: viewModel.elements()) {
             int x = 0;
             int y = 0;
@@ -89,11 +90,11 @@ public class HudRenderHelper {
             v = textureSize - height;
             context.setShaderColor(red, green, blue, element.full);
             context.drawTexture(ARROW, x, y, u, v, width, height, textureSize, textureSize);
+            context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
             drawnWith += horizontalSpacing;
         }
-
-        context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.disableBlend();
 
         if (config.showKeybinding) {
             var textRenderer = client.inGameHud.getTextRenderer();
@@ -140,8 +141,6 @@ public class HudRenderHelper {
                 context.drawCenteredTextWithShadow(textRenderer, label, keybindingX, textY, 0xFFFFFF);
             }
         }
-
-        context.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
     private record ViewModel(List<Element> elements, String label, @Nullable Drawable.Component drawable) {
